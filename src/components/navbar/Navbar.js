@@ -7,7 +7,7 @@ import { IoIosSearch } from "react-icons/io";
 const Navbar = () => {
   return (
     <div>
-      <div className="flex px-5 py-3 justify-between px-5">
+      <div className="flex px-5 py-3 justify-between">
         <div className="flex items-center gap-5">
           <GiHamburgerMenu size={24} />
           <img
@@ -21,22 +21,24 @@ const Navbar = () => {
             <input
               placeholder="Search"
               className="border outline-none 
-              px-2 py-1 border-gray-400 
+              h-[40px] px-3 border-gray-400 
               w-full rounded rounded-l-full "
               type="text"
             />
           </div>
-          <button className="py-2 px-3 border-gray-400 rounded rounded-r-full bg-gray-400">
-            <IoIosSearch size={18} />
+          <button className="flex justify-center items-center w-[64px] h-[40px] border-gray-400 
+          rounded rounded-r-full bg-gray-400">
+            <IoIosSearch size={20} />
           </button>
         </div>
         <div className="flex items-center gap-4">
-          <CiVideoOn size={24} />
-          <IoIosNotificationsOutline size={24} />
+          <CiVideoOn size={24} className="cursor-pointer" />
+          <IoIosNotificationsOutline size={24} className="cursor-pointer" />
           <Avatar
             src="https://i.redd.it/l69d7d8m3sqa1.jpg"
             size={24}
             round={true}
+            className="cursor-pointer"
           />
         </div>
       </div>
