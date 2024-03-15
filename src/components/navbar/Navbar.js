@@ -6,8 +6,8 @@ import Avatar from "react-avatar";
 import { IoIosSearch } from "react-icons/io";
 const Navbar = () => {
   return (
-    <div>
-      <div className="flex px-5 py-3 justify-between">
+    <div className="flex fixed top-0 justify-center items-center w-[100%] h-[50px] z-10 bg-white">
+      <div className="flex mt-6 w-[96%] py-3 justify-between items-center">
         <div className="flex items-center gap-5">
           <GiHamburgerMenu size={24} />
           <img
