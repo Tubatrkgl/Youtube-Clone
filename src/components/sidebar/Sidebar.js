@@ -157,8 +157,8 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="relative left-0 w-auto p-5 h-[calc(100vh-4.625rem)] ml-4
-    mt-6 overflow-y-scroll overflow-x-hidden">
+    <div className="relative left-0 w-auto p-5 h-[calc(100vh-4.625rem)] ml-3
+     overflow-y-scroll overflow-x-hidden">
       {SideItem.map((item, index) => { 
         return (
           <div key={index} className="flex my-3">

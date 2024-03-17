@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
    <Navbar/>
-   <div className='flex mt-10'>
+   <div className='flex mt-14'>
     <Sidebar/>
     {/* Video render here... */}
     <Feed/>
