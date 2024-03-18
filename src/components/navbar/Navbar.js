@@ -4,18 +4,20 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiVideoOn } from "react-icons/ci";
 import Avatar from "react-avatar";
 import { IoIosSearch } from "react-icons/io";
-
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../../utils/appSlice";
 const Navbar = () => {
+  const dispatch = useDispatch();
 
-  const toggleHandler = ()=>{
+  const toggleHandler = () => {
+    dispatch(toggleSidebar());
+  };
 
-  }
-  
   return (
     <div className="flex fixed top-0 justify-center items-center w-[100%] h-[50px] z-10 bg-white">
       <div className="flex mt-6 w-[96%] py-3 justify-between items-center">
         <div className="flex items-center gap-5">
-          <GiHamburgerMenu onClick={toggleHandler} size={24} />
+          <GiHamburgerMenu onClick={toggleHandler} size={24} className="cursor-pointer" />
           <img
             className="w-[90px]"
             src="https://seeklogo.com/images/Y/youtube-2017-logo-D185B4FEFA-seeklogo.com.png"
@@ -32,8 +34,10 @@ const Navbar = () => {
               type="text"
             />
           </div>
-          <button className="flex justify-center items-center w-[64px] h-[40px] border-gray-400 
-          rounded rounded-r-full bg-gray-400">
+          <button
+            className="flex justify-center items-center w-[64px] h-[40px] border-gray-400 
+          rounded rounded-r-full bg-gray-400"
+          >
             <IoIosSearch size={20} />
           </button>
         </div>

@@ -17,8 +17,10 @@ import { MdOutlineMusicNote } from "react-icons/md";
 import { BsSoundwave } from "react-icons/bs";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { GiTrophyCup } from "react-icons/gi";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const open = useSelector((store) => store.app.open);
   const SideItem = [
     {
       icons: <CiHome size={22} />,
@@ -124,46 +126,56 @@ const Sidebar = () => {
       title: "Sport",
     },
     {
-        icons: <hr className="my-2 border-t-2 border-gray-300 w-full" />
+      icons: <hr className="my-2 border-t-2 border-gray-300 w-full" />,
     },
     {
       title: "More content from...",
     },
     {
-       icons: <Avatar
-        src="https://static.vecteezy.com/system/resources/previews/017/395/382/original/youtube-studio-icons-free-png.png"
-        size={30}
-        round={true}
-        className="cursor-pointer object-cover"
-      />,
-      title:"Youtube Studio"
-     },
-    {
-      icons:<Avatar
-      src="https://static.vecteezy.com/system/resources/previews/017/396/813/original/youtube-music-icon-free-png.png"
-      size={30}
-      round={true}
-      className="cursor-pointer object-cover"/>,
-      title: "Youtube Music"
+      icons: (
+        <Avatar
+          src="https://static.vecteezy.com/system/resources/previews/017/395/382/original/youtube-studio-icons-free-png.png"
+          size={30}
+          round={true}
+          className="cursor-pointer object-cover"
+        />
+      ),
+      title: "Youtube Studio",
     },
     {
-        icons:<Avatar
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XN1oKItYMW5vRm8SIePH1qtG3sLkVK0W2TdWHDK9pK3-jWSJ0c8Z__GMaS-rSh8Td2M&usqp=CAU"
-        size={30}
-        round={true}
-        className="cursor-pointer object-cover"/>,
+      icons: (
+        <Avatar
+          src="https://static.vecteezy.com/system/resources/previews/017/396/813/original/youtube-music-icon-free-png.png"
+          size={30}
+          round={true}
+          className="cursor-pointer object-cover"
+        />
+      ),
+      title: "Youtube Music",
+    },
+    {
+      icons: (
+        <Avatar
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XN1oKItYMW5vRm8SIePH1qtG3sLkVK0W2TdWHDK9pK3-jWSJ0c8Z__GMaS-rSh8Td2M&usqp=CAU"
+          size={30}
+          round={true}
+          className="cursor-pointer object-cover"
+        />
+      ),
       title: "Youtube Kids",
     },
   ];
 
   return (
-    <div className="relative left-0 w-auto p-5 h-[calc(100vh-4.625rem)] ml-3
-     overflow-y-scroll overflow-x-hidden">
-      {SideItem.map((item, index) => { 
+    <div
+      className="relative left-0 md:w-[20%] md:max-lg:w-[10%] p-5 h-[calc(100vh-4.625rem)] ml-3
+     overflow-y-scroll overflow-x-hidden"
+    >
+      {SideItem.map((item, index) => {
         return (
           <div key={index} className="flex my-3">
             {item.icons}
-            <p className={`ml-5 ${open ? "" : 'hidden'}`}>{item.title}</p>
+            <p className={`ml-5 max-lg:hidden ${open ? "" : "hidden"}`}>{item.title}</p>
           </div>
         );
       })}

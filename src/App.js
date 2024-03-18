@@ -10,7 +10,6 @@ function App() {
    <Navbar/>
    <div className='flex mt-14'>
     <Sidebar/>
-    {/* Video render here... */}
     <Feed/>
    </div>
    
