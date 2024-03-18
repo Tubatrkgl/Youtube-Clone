@@ -1,6 +1,6 @@
 import React from 'react'
 
-const buttonList = ["All", "Javascript", "Java", "Live", "React", "Music", "Songs","Vlogs","Trending","Programming", "Home repair", "Tourism", "Handicrafts", "Visual arts", "Mathematics", "Latest uploads", "Viewed", "new suggestions"]
+const buttonList = ["All", "Javascript", "Java", "Live", "React", "Music", "Songs","Vlogs","Trending","Programming", "Home repair", "Tourism", "Handicrafts"]
 
 
 
@@ -16,4 +16,4 @@ const ButtonList = () => {
   )
 }
 
-export default ButtonList
+ export default ButtonList

@@ -132,26 +132,26 @@ const Sidebar = () => {
     {
        icons: <Avatar
         src="https://static.vecteezy.com/system/resources/previews/017/395/382/original/youtube-studio-icons-free-png.png"
-        size={26}
+        size={30}
         round={true}
-        className="cursor-pointer"
+        className="cursor-pointer object-cover"
       />,
       title:"Youtube Studio"
      },
     {
       icons:<Avatar
       src="https://static.vecteezy.com/system/resources/previews/017/396/813/original/youtube-music-icon-free-png.png"
-      size={26}
+      size={30}
       round={true}
-      className="cursor-pointer"/>,
+      className="cursor-pointer object-cover"/>,
       title: "Youtube Music"
     },
     {
         icons:<Avatar
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5XN1oKItYMW5vRm8SIePH1qtG3sLkVK0W2TdWHDK9pK3-jWSJ0c8Z__GMaS-rSh8Td2M&usqp=CAU"
-        size={26}
+        size={30}
         round={true}
-        className="cursor-pointer"/>,
+        className="cursor-pointer object-cover"/>,
       title: "Youtube Kids",
     },
   ];
@@ -163,7 +163,7 @@ const Sidebar = () => {
         return (
           <div key={index} className="flex my-3">
             {item.icons}
-            {item.title && <p className="ml-5">{item.title}</p>}
+            <p className={`ml-5 ${open ? "" : 'hidden'}`}>{item.title}</p>
           </div>
         );
       })}
