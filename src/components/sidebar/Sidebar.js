@@ -168,8 +168,8 @@ const Sidebar = () => {
 
   return (
     <div
-      className="relative left-0 md:w-[20%] md:max-lg:w-[10%] p-5 h-[calc(100vh-4.625rem)] ml-3
-     overflow-y-scroll overflow-x-hidden"
+      className={`relative left-0 ${open ? "md:w-[15%]" : ""} p-5 h-[calc(100vh-4.625rem)] ml-3
+     overflow-y-scroll overflow-x-hidden`}
     >
       {SideItem.map((item, index) => {
         return (

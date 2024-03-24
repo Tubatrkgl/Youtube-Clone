@@ -1,13 +1,13 @@
 import React from "react";
 import Avatar from "react-avatar";
 
-const VideoCart = () => {
+const VideoCart = ({item}) => {
   return (
-    <div className="w-94 cursor-pointer">
+    <div className="w-94 cursor-pointer my-2">
       <img
         className="rounded-xl w-full"
-        src="https://avatars.mds.yandex.net/i?id=2a0000017a0630a79b766fa4cf2e72388e35-5177029-images-thumbs&n=13"
-        alt="vide"
+        src={item.snippet.thumbnails.high.url}
+        alt="video"
       />
       <div>
         <div className="flex mt-2">
@@ -18,8 +18,8 @@ const VideoCart = () => {
             className="cursor-pointer"
           />
           <div className="ml-2">
-            <h1 className="font-bold">Master React with Patel Programmer </h1>
-            <p className="text-xs text-gray-500">Patel Programmer</p>
+            <h1 className="font-bold">{item.snippet.title}</h1>
+            <p className="text-xs text-gray-500">{item.snippet.channelTitle}</p>
           </div>
         </div>
       </div>
