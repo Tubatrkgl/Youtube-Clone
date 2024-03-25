@@ -168,14 +168,15 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`relative left-0 ${open ? "md:w-[15%]" : ""} p-5 h-[calc(100vh-4.625rem)] ml-3
+      className={`relative left-0 ${open ? "md:w-[20%] md:max-sm:w-[40%]" : ""} flex-wrap md:px-4
+      md:max-sm:px-3 h-[calc(100vh-4.625rem)] ml-3
      overflow-y-scroll overflow-x-hidden`}
     >
       {SideItem.map((item, index) => {
         return (
           <div key={index} className="flex my-3">
             {item.icons}
-            <p className={`ml-5 max-lg:hidden ${open ? "" : "hidden"}`}>{item.title}</p>
+            <p className={`mx-2 ${open ? "" : "hidden"}`}>{item.title}</p>
           </div>
         );
       })}
