@@ -7,6 +7,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { AiOutlineDislike } from "react-icons/ai";
 import { PiShareFat } from "react-icons/pi";
 import { TfiDownload } from "react-icons/tfi";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 const Watch = () => {
   const [singleVideo, setSingleVideo] = useState(null);
@@ -28,7 +29,7 @@ const Watch = () => {
     getSingleVideo();
   }, []);
   return (
-    <div className="flex ml-4 justify-between">
+    <div className="flex ml-4 justify-between w-[100%] mt-3">
       <div>
         <iframe
           width="900"
@@ -77,6 +78,26 @@ const Watch = () => {
         </div>
 
         <div></div>
+      </div>
+      <div className="w-[100%] mx-8 border border-gray-300 rounded-lg h-fit p-4">
+        <div className="flex justify-between items-center">
+          <h1>Top Chat</h1>
+          <BsThreeDotsVertical />
+        </div>
+        <div className="overflow-y-auto h-[28rem]">Chats</div>
+        <div className="">
+          <div className="flex">
+            <div>
+              <Avatar
+                src="https://i.redd.it/l69d7d8m3sqa1.jpg"
+                size={24}
+                round={true}
+                className="cursor-pointer"
+              />
+            </div>
+            <input className="border border-gray-300 outline-none" type="text" placeholder="Send message..." />
+          </div>
+        </div>
       </div>
     </div>
   );
