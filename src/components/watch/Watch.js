@@ -8,8 +8,11 @@ import { AiOutlineDislike } from "react-icons/ai";
 import { PiShareFat } from "react-icons/pi";
 import { TfiDownload } from "react-icons/tfi";
 import { BsThreeDotsVertical } from "react-icons/bs";
+import { LuSendHorizonal } from "react-icons/lu";
+import LiveChat from "../livechat/LiveChat";
 
 const Watch = () => {
+    const [input, setInput] =useState()
   const [singleVideo, setSingleVideo] = useState(null);
   const [searcParams] = useSearchParams();
   const videoId = searcParams.get("v");
@@ -84,9 +87,11 @@ const Watch = () => {
           <h1>Top Chat</h1>
           <BsThreeDotsVertical />
         </div>
-        <div className="overflow-y-auto h-[28rem]">Chats</div>
-        <div className="">
-          <div className="flex">
+        <div className="overflow-y-auto h-[28rem]">
+            <LiveChat/>
+        </div>
+        <div className="flex items-center justify-between border-t p-2">
+          <div className="flex items-center w-[90%]">
             <div>
               <Avatar
                 src="https://i.redd.it/l69d7d8m3sqa1.jpg"
@@ -95,7 +100,10 @@ const Watch = () => {
                 className="cursor-pointer"
               />
             </div>
-            <input className="border border-gray-300 outline-none" type="text" placeholder="Send message..." />
+            <input className="border-b border-gray-300 outline-none ml-4" type="text" placeholder="Send message..." />
+          <div className="bg-gray-200 cusor-pointer p-2 rounded-full">
+             <LuSendHorizonal />
+          </div>
           </div>
         </div>
       </div>
