@@ -1,14 +1,19 @@
-import React from 'react'
-import ChatMessage from '../chatmessage/ChatMessage'
+import React from "react";
+import { useSelector } from "react-redux";
+import ChatMessage from "../chatmessage/ChatMessage";
 
 const LiveChat = () => {
-  return (
-    <div className='px-4 py-1'>
-        <div>
-            <ChatMessage/>
-        </div>
-    </div>
-  )
-}
+  const messages = useSelector((store) => store.chat.messages);
 
-export default LiveChat
+  return (
+    <div className="px-4 py-1">
+      <div>
+        {messages.map((item, idx) => (
+          <ChatMessage key={idx} item={item} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default LiveChat;

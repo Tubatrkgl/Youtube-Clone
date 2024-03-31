@@ -9,6 +9,7 @@ const appSlice = createSlice({
     toggleSidebar: (state) => {
       state.open = !state.open;
     },
+  
   },
 });
 

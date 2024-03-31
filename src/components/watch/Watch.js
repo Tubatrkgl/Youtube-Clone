@@ -10,12 +10,16 @@ import { TfiDownload } from "react-icons/tfi";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { LuSendHorizonal } from "react-icons/lu";
 import LiveChat from "../livechat/LiveChat";
+import { useDispatch } from "react-redux";
+import { setMessage } from "../../utils/chatSlice";
+
 
 const Watch = () => {
-    const [input, setInput] =useState()
+  const [input, setInput] = useState("");
   const [singleVideo, setSingleVideo] = useState(null);
   const [searcParams] = useSearchParams();
   const videoId = searcParams.get("v");
+  const dispatch = useDispatch();
 
   const getSingleVideo = async () => {
     try {
@@ -28,9 +32,14 @@ const Watch = () => {
       console.log(error);
     }
   };
+
+  const sendMessage = () => {
+    dispatch(setMessage({name:"Patel Programmer", message:input}));
+  setInput("");
+};
   useEffect(() => {
     getSingleVideo();
-  }, []);
+  }, );
   return (
     <div className="flex ml-4 justify-between w-[100%] mt-3">
       <div>
@@ -88,7 +97,7 @@ const Watch = () => {
           <BsThreeDotsVertical />
         </div>
         <div className="overflow-y-auto h-[28rem]">
-            <LiveChat/>
+          <LiveChat />
         </div>
         <div className="flex items-center justify-between border-t p-2">
           <div className="flex items-center w-[90%]">
@@ -100,10 +109,16 @@ const Watch = () => {
                 className="cursor-pointer"
               />
             </div>
-            <input className="border-b border-gray-300 outline-none ml-4" type="text" placeholder="Send message..." />
-          <div className="bg-gray-200 cusor-pointer p-2 rounded-full">
-             <LuSendHorizonal />
-          </div>
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              className="border-b border-gray-300 outline-none ml-4"
+              type="text"
+              placeholder="Send message..."
+            />
+            <div className="bg-gray-200 cusor-pointer p-2 rounded-full">
+              <LuSendHorizonal onClick={sendMessage} />
+            </div>
           </div>
         </div>
       </div>
