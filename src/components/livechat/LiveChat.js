@@ -1,16 +1,27 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ChatMessage from "../chatmessage/ChatMessage";
+import { setMessage } from "../../utils/chatSlice";
+import { generateRandomMessage, generateRandomName } from "../../utils/helper";
 
 const LiveChat = () => {
-  const messages = useSelector((store) => store.chat.messages);
+  const message = useSelector((store) => store.chat.message);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const timer = setInterval(() => {
+      dispatch(setMessage({name:generateRandomName(), message:generateRandomMessage(16)}));
+    }, 1000);
+    return(()=>{
+      clearInterval(timer)
+    })
+  }, []);
 
   return (
     <div className="px-4 py-1">
       <div>
-        {messages.map((item, idx) => (
-          <ChatMessage key={idx} item={item} />
-        ))}
+        {message.map((item, idx) => {
+          return <ChatMessage key={idx} item={item} />;
+        })}
       </div>
     </div>
   );

@@ -3,11 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const chatSlice = createSlice({
   name: "chat",
   initialState: {
-    messages: [],
+    message: [],
   },
   reducers: {
     setMessage: (state, action) => {
-      state.messages.push(action.payload);
+      state.message.splice(100,1);
+      state.message.push(action.payload);
     },
   },
 });

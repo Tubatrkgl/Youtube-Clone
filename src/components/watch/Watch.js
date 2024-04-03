@@ -13,7 +13,6 @@ import LiveChat from "../livechat/LiveChat";
 import { useDispatch } from "react-redux";
 import { setMessage } from "../../utils/chatSlice";
 
-
 const Watch = () => {
   const [input, setInput] = useState("");
   const [singleVideo, setSingleVideo] = useState(null);
@@ -34,12 +33,12 @@ const Watch = () => {
   };
 
   const sendMessage = () => {
-    dispatch(setMessage({name:"Patel Programmer", message:input}));
-  setInput("");
-};
+    dispatch(setMessage({ name: "Patel Programmer", message: input }));
+    setInput("");
+  };
   useEffect(() => {
     getSingleVideo();
-  }, );
+  });
   return (
     <div className="flex ml-4 justify-between w-[100%] mt-3">
       <div>
@@ -96,7 +95,7 @@ const Watch = () => {
           <h1>Top Chat</h1>
           <BsThreeDotsVertical />
         </div>
-        <div className="overflow-y-auto h-[28rem]">
+        <div className="overflow-y-auto h-[28rem] flex flex-col-reverse">
           <LiveChat />
         </div>
         <div className="flex items-center justify-between border-t p-2">
