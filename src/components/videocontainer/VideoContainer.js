@@ -12,32 +12,38 @@ const VideoContainer = () => {
   useEffect(() => {
     const fetchVideo = async () => {
       try {
-        const resp = await axios.get(YOUTUBE_VIDEO_API, {
+        const res = await axios.get(YOUTUBE_VIDEO_API, {
           params: {
             key: API_KEY,
           },
         });
 
-        dispatch(setHomeVideo(resp?.data.items));
+        dispatch(setHomeVideo(res?.data.items));
       } catch (error) {
         console.log(error);
       }
-      fetchVideo();
+      if (category === "All") {
+        fetchVideo();
+      }else{
+        fetchVideoByCategory();
+      }
     };
-  }, []);
+  }, [category]);
   const fetchVideoByCategory = async () => {
     try {
       const res = await axios.get(
         `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=${category}&type=video&key=${API_KEY}`
       );
-      dispatch(setHomeVideo(res.data.items))
+      dispatch(setHomeVideo(res?.data.items));
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    fetchVideoByCategory();
-  }, []);
+    
+      fetchVideoByCategory();
+    
+  }, [category]);
 
   return (
     <div className="grid grid-cols-3 gap-4 my-2 py-8">
